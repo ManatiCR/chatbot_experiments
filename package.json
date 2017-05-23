@@ -1,0 +1,24 @@
+{
+  "name": "chatbot_experiments",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-if": "^2.0.0",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-util": "^3.0.1",
+    "minimist": "^1.2.0",
+    "phplint": "^1.6.1",
+    "require-dir": "^0.3.0",
+    "sync-exec": "^0.6.2",
+    "through2": "^2.0.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "aquifer": "aquifer",
+    "gulp": "gulp",
+    "build-site": "rm -rf web ; composer update ;  if [ $? -ne 0 ] ; then composer update ; fi",
+    "build-theme": "gulp theme",
+    "test": "gulp phplint && gulp drupalcs && gulp eslint"
+  }
+}

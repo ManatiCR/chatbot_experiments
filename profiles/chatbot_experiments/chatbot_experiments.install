@@ -1,0 +1,11 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for Chatbot Experiments profile.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function chatbot_experiments_install() {
+}

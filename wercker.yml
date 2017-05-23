@@ -1,0 +1,270 @@
+box: kporras07/drupal-wercker
+build:
+    steps:
+    - script:
+        name: Install Dependencies
+        code: |
+            npm install
+    - script:
+        name: Setup Global Stuff
+        code: |
+            cp ./wercker/chatbot_experiments.aliases.drushrc.php ~/.drush
+            # Drupal settings.
+            cp ./wercker/wercker.settings.secret.php ./settings/settings.secret.php
+            composer update --ignore-platform-reqs
+            composer update --ignore-platform-reqs
+            # Install xvfb.
+            sudo apt-get install xvfb -y
+            # Install Chrome.
+            mkdir -p $HOME/google-chrome && cd $HOME/google-chrome && curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo dpkg -i $HOME/google-chrome/google-chrome.deb || sudo apt-get update -y && sudo apt-get install -f -y
+            # Install Chromedriver.
+            wget https://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+            sudo ln -s $PWD/chromedriver /usr/bin/chromedriver
+            # Install Java.
+            sudo apt-get install software-properties-common python-software-properties -y
+            sudo add-apt-repository ppa:openjdk-r/ppa -y
+            sudo apt-get update -y
+            sudo apt-get install openjdk-8-jdk -y
+            # Download Selenium.
+            wget http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.1.jar
+            # Start Selenium
+            xvfb-run java -jar selenium-server-standalone-3.0.1.jar > /dev/null 2>&1 &
+            # Restore current folder.
+            cd $WERCKER_ROOT
+            # Configure Apache.
+            cp ./wercker/chatbot_experiments.dev.conf /etc/apache2/sites-available/
+            a2ensite chatbot_experiments.dev
+            a2enmod rewrite
+            service apache2 restart
+            # Edit hosts file.
+            echo "127.0.0.1 chatbot_experiments.dev" >> /etc/hosts
+
+            # Prepare Drupal Installation and Install it.
+            # Build the Drupal site and set files permissions.
+            chown -R root:www-data ./files
+            chmod 777 -R ./web/sites/default/files
+            chown -R www-data:www-data ./web/sites/default/files
+            # Set alias.
+            drush site-set @chatbot_experiments.chatbot-experiments.dev
+            drush cc drush
+            # Start mysql and apache servers.
+            service apache2 start
+            service mysql start
+            # Create Drupal DB
+            mysql -u root -pAdmin2015 -e "create database drupal;"
+            # Install Drupal and disable sendmail.
+            if [ -f /pipeline/source/config/sync/core.extension.yml ] ; then /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" && drush si chatbot_experiments -y ; drush config-set "system.site" uuid $SITE_UUID -y ; drush cim -y ; else /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" drush si chatbot_experiments -y ; fi
+            # Post build configuration.
+            drush cc drush
+            drush cr
+            # Install dependencies for running visual regression tests with Wraith.
+            \curl -sSL https://get.rvm.io | bash -s stable
+            \curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+            source /usr/local/rvm/scripts/rvm
+            rvm install 2.4
+            rvm use 2.4
+            sudo apt-get install libicu-dev imagemagick rake -y
+            sudo npm install -g casperjs phantomjs
+            gem install wraith
+
+    - script:
+        name: Test all the things!
+        code: |
+            # PHP Lint.
+            ./node_modules/.bin/gulp phplint
+            # Drupal Coding Standards.
+            ./node_modules/.bin/gulp drupalcs
+            # ESLint.
+            ./node_modules/.bin/gulp eslint
+            # Overridden features.
+            # Available updates.
+            drush @chatbot_experiments.chatbot_experiments.dev ups | grep -qi "update available" && (echo 'Updates available FAIL' && exit 1) || (echo 'No updates available PASS' && exit 0)
+            # Behat tests.
+            ./vendor/bin/behat -p wercker
+            # Visual regression tests.
+            # cd wraith && wraith capture capture
+            # Store wraith shots in wercker artifacts folder.
+            # cp -r shots $WERCKER_REPORT_ARTIFACTS_DIR/
+deploy:
+    steps:
+    - script:
+        name: Install ssh and other dependencies
+        code: |
+            apt-get update -y
+            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+    - add-ssh-key:
+        keyname: DEPLOYMENT_KEY
+    - script:
+        name: Install other dependencies
+        code: |
+            eval `ssh-agent`
+            npm install
+            echo 'Host *' >> /root/.ssh/config
+            echo '   StrictHostKeyChecking no' >> /root/.ssh/config
+            git config --global user.email "you@example.com"
+            git config --global user.name "Your Name"
+    - script:
+        name: Install Pantheon CLI
+        code: |
+            terminus auth login --machine-token=$PANTHEON_TOKEN
+            terminus sites aliases
+    - script:
+        name: Install Ahoy
+        code: |
+            wget -q https://github.com/ahoy-cli/ahoy/releases/download/2.0.0-beta1/ahoy-bin-`uname -s`-amd64 -O /usr/local/bin/ahoy && chmod +x /usr/local/bin/ahoy
+    - script:
+        name: Deploy code to pantheon
+        code: |
+            echo 'Ensure we are on git mode'
+            terminus site set-connection-mode --site=chatbot-experiments --env=dev --mode=git
+            git config --global user.email "ci@estudiomanati.com"
+            git config --global user.name "CI Bot"
+            ahoy deploy master "Auto deploy triggered from master branch"
+    - script:
+        name: Deploy steps to pantheon dev
+        code: |
+            echo 'Host *' >> /root/.ssh/config
+            echo '   StrictHostKeyChecking no' >> /root/.ssh/config
+            mkdir -p ~/.drush
+            cp ./wercker/policy.drush.inc ~/.drush/
+            drush cc drush
+            drush site-set @pantheon.chatbot-experiments.dev
+            echo 'Set sftp'
+            terminus site set-connection-mode --site=chatbot-experiments --env=dev --mode=sftp
+            if [ -f ./config/sync/core.extension.yml ] ; then drush si chatbot_experiments -y ; drush config-set "system.site" uuid "$SITE_UUID" -y ; drush cim -y ; else drush si chatbot_experiments -y ; fi
+            echo 'Set git'
+            terminus site set-connection-mode --site=chatbot-experiments --env=dev --mode=git
+            # Post build configuration.
+            drush cc drush --strict=0
+            drush cr --strict=0
+deploy-test:
+    steps:
+    - script:
+        name: Install ssh and other dependencies
+        code: |
+            apt-get update -y
+            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+    - add-ssh-key:
+        keyname: DEPLOYMENT_KEY
+    - script:
+        name: Install other dependencies
+        code: |
+            eval `ssh-agent`
+            npm install
+    - script:
+        name: Install Pantheon CLI
+        code: |
+            terminus auth login --machine-token=$PANTHEON_TOKEN
+            terminus sites aliases
+    - script:
+        name: Deploy code to test
+        code: |
+            terminus site deploy --site=chatbot_experiments --env=test --sync-content --note="Deployed from wercker UI"
+    - script:
+        name: Deploy steps to pantheon test
+        code: |
+            echo 'Host *' >> /root/.ssh/config
+            echo '   StrictHostKeyChecking no' >> /root/.ssh/config
+            mkdir -p ~/.drush
+            cp ./wercker/policy.drush.inc ~/.drush/
+            # Post build configuration.
+            terminus drush --site=chatbot_experiments --env=test "sqlsan -y --strict=0"
+            terminus drush --site=chatbot_experiments --env=test "cc drush --strict=0"
+            terminus drush --site=chatbot_experiments --env=test "updb -y --strict=0"
+            terminus drush --site=chatbot_experiments --env=test "cim -y --strict=0"
+            terminus drush --site=chatbot_experiments --env=test "cr --strict=0"
+deploy-live:
+    steps:
+    - script:
+        name: Install ssh and other dependencies
+        code: |
+            apt-get update -y
+            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+    - add-ssh-key:
+        keyname: DEPLOYMENT_KEY
+    - script:
+        name: Install other dependencies
+        code: |
+            eval `ssh-agent`
+            npm install
+    - script:
+        name: Install Pantheon CLI
+        code: |
+            terminus auth login --machine-token=$PANTHEON_TOKEN
+            terminus sites aliases
+    - script:
+        name: Deploy code to live
+        code: |
+            terminus site deploy --site=chatbot_experiments --env=live --note="Deployed from wercker UI"
+    - script:
+        name: Deploy steps to pantheon live
+        code: |
+            echo 'Host *' >> /root/.ssh/config
+            echo '   StrictHostKeyChecking no' >> /root/.ssh/config
+            mkdir -p ~/.drush
+            cp ./wercker/policy.drush.inc ~/.drush/
+            # Post build configuration.
+            terminus drush --site=chatbot_experiments --env=live "sqlsan -y --strict=0"
+            terminus drush --site=chatbot_experiments --env=live "cc drush --strict=0"
+            terminus drush --site=chatbot_experiments --env=live "updb -y --strict=0"
+            terminus drush --site=chatbot_experiments --env=live "cim -y --strict=0"
+            terminus drush --site=chatbot_experiments --env=live "cr --strict=0"
+deploy-multidev:
+    steps:
+    - script:
+        name: Install ssh and other dependencies
+        code: |
+            apt-get update -y
+            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+    - add-ssh-key:
+        keyname: DEPLOYMENT_KEY
+    - script:
+        name: Install other dependencies
+        code: |
+            eval `ssh-agent`
+            npm install
+            echo 'Host *' >> /root/.ssh/config
+            echo '   StrictHostKeyChecking no' >> /root/.ssh/config
+            git config --global user.email "you@example.com"
+            git config --global user.name "Your Name"
+    - script:
+        name: Install Pantheon CLI
+        code: |
+            terminus auth login --machine-token=$PANTHEON_TOKEN
+            terminus sites aliases
+    - script:
+        name: Install Ahoy
+        code: |
+               wget -q https://github.com/ahoy-cli/ahoy/releases/download/2.0.0-beta1/ahoy-bin-`uname -s`-amd64 -O /usr/local/bin/ahoy && chmod +x /usr/local/bin/ahoy
+    - script:
+        name: Deploy code to pantheon
+        code: |
+            echo 'Load aquifer extensions...'
+            ./node_modules/.bin/aquifer extensions-load
+            NEWBRANCH=$WERCKER_GIT_BRANCH
+            LENGTH=${#NEWBRANCH}
+            if [ LENGTH > 10 ] ; then NEWBRANCH=${NEWBRANCH:8:6} ; fi
+            NEWBRANCH=${NEWBRANCH//-/}
+            NEWBRANCH=${NEWBRANCH,,}
+            ahoy deploy $NEWBRANCH "Auto deploy triggered from $WERCKER_GIT_BRANCH branch"
+    - script:
+        name: Deploy steps to pantheon multidev
+        code: |
+            echo 'Host *' >> /root/.ssh/config
+            echo '   StrictHostKeyChecking no' >> /root/.ssh/config
+            mkdir -p ~/.drush
+            cp ./wercker/policy.drush.inc ~/.drush/
+            terminus site create-env --site=chatbot_experiments --to-env=$NEWBRANCH --from-env=dev
+            terminus sites aliases
+            drush site-set @pantheon.chatbot-experiments.$NEWBRANCH
+            echo 'Set sftp'
+            terminus site set-connection-mode --site=chatbot_experiments --env=$NEWBRANCH --mode=sftp
+            if [ -f /pipeline/source/config/sync/core.extension.yml ] ; then drush si chatbot_experiments -y ; drush config-set "system.site" uuid "$SITE_UUID" -y ; drush cim -y ; else drush si chatbot_experiments -y ; fi
+            echo 'Set git'
+            terminus site set-connection-mode --site=chatbot_experiments --env=$NEWBRANCH --mode=git
+            # Post build configuration.
+            terminus drush --site=chatbot_experiments --env=$NEWBRANCH "cc drush --strict=0"
+            terminus drush --site=chatbot_experiments --env=$NEWBRANCH "cr --strict=0"
+            echo "If everything worked, go to http://$NEWBRANCH-chatbot_experiments.pantheonsite.io"
