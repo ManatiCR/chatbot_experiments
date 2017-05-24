@@ -41,7 +41,7 @@
     "post-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
       "Kporras07\\ComposerSymlinks\\ScriptHandler::createSymlinks",
-      "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+      "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
