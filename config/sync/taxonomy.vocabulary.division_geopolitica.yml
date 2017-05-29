@@ -1,0 +1,9 @@
+uuid: c0386460-952d-457f-8c0a-ae3f5355b075
+langcode: en
+status: true
+dependencies: {  }
+name: 'División Geopolítica'
+vid: division_geopolitica
+description: ''
+hierarchy: 0
+weight: 0
