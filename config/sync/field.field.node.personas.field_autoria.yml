@@ -1,0 +1,28 @@
+uuid: a7ea8ec5-fb74-4e43-9e20-2c264334ce9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_autoria
+    - node.type.personas
+    - taxonomy.vocabulary.autoria
+id: node.personas.field_autoria
+field_name: field_autoria
+entity_type: node
+bundle: personas
+label: Autoría
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      autoria: autoria
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

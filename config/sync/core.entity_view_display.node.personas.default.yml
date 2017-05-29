@@ -1,0 +1,407 @@
+uuid: c412ed61-1b85-4293-a562-85c529702994
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.personas.body
+    - field.field.node.personas.field_apartado_postal
+    - field.field.node.personas.field_archivo_descargable
+    - field.field.node.personas.field_autoria
+    - field.field.node.personas.field_canal_vimeo
+    - field.field.node.personas.field_canal_youtube
+    - field.field.node.personas.field_categoria
+    - field.field.node.personas.field_correo_electronico
+    - field.field.node.personas.field_correo_electronico_alterna
+    - field.field.node.personas.field_direccion_detallada
+    - field.field.node.personas.field_facebook
+    - field.field.node.personas.field_fax
+    - field.field.node.personas.field_fotos
+    - field.field.node.personas.field_google_
+    - field.field.node.personas.field_linkedin
+    - field.field.node.personas.field_location
+    - field.field.node.personas.field_provincia_canton_distrito
+    - field.field.node.personas.field_sitio_web
+    - field.field.node.personas.field_telefono_de_habitacion
+    - field.field.node.personas.field_telefono_de_oficina
+    - field.field.node.personas.field_telefono_movil
+    - field.field.node.personas.field_twitter
+    - field.field.node.personas.field_video
+    - node.type.personas
+  module:
+    - ds
+    - field_group
+    - file
+    - geolocation
+    - image
+    - link
+    - shs
+    - text
+    - user
+    - video_embed_field
+third_party_settings:
+  field_group:
+    group_ubicacion:
+      children:
+        - field_direccion_detallada
+        - field_provincia_canton_distrito
+        - field_location
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Ubicación
+    group_medios_audiovisuales:
+      children:
+        - field_fotos
+        - field_video
+        - field_archivo_descargable
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Medios Audiovisuales'
+    group_datos_de_contacto:
+      children:
+        - field_telefono_de_oficina
+        - field_telefono_de_habitacion
+        - field_fax
+        - field_telefono_movil
+        - field_sitio_web
+        - field_correo_electronico
+        - field_correo_electronico_alterna
+        - field_apartado_postal
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Datos de contacto'
+    group_redes_sociales:
+      children:
+        - field_facebook
+        - field_twitter
+        - field_google_
+        - field_linkedin
+        - field_canal_youtube
+        - field_canal_vimeo
+      parent_name: ''
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Redes sociales'
+    group_informacion_de_autoria:
+      children:
+        - field_autoria
+      parent_name: ''
+      weight: 7
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Información de autoría'
+  ds:
+    layout:
+      id: ds_reset
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - node_title
+        - field_categoria
+        - body
+        - group_ubicacion
+        - group_medios_audiovisuales
+        - field_direccion_detallada
+        - group_datos_de_contacto
+        - field_fotos
+        - field_provincia_canton_distrito
+        - group_redes_sociales
+        - field_telefono_de_oficina
+        - field_location
+        - group_informacion_de_autoria
+        - field_video
+        - field_facebook
+        - field_telefono_de_habitacion
+        - field_autoria
+        - field_archivo_descargable
+        - field_fax
+        - field_twitter
+        - field_telefono_movil
+        - field_google_
+        - field_linkedin
+        - field_sitio_web
+        - field_canal_youtube
+        - field_correo_electronico
+        - field_canal_vimeo
+        - field_correo_electronico_alterna
+        - field_apartado_postal
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+id: node.personas.default
+targetEntityType: node
+bundle: personas
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_trimmed
+    weight: 2
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: ds_content
+  field_apartado_postal:
+    weight: 14
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: ds_content
+  field_archivo_descargable:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_table
+    region: ds_content
+  field_autoria:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: ds_content
+  field_canal_vimeo:
+    weight: 13
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: ds_content
+  field_canal_youtube:
+    weight: 12
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: ds_content
+  field_categoria:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_shs
+    region: ds_content
+  field_correo_electronico:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: ds_content
+  field_correo_electronico_alterna:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: ds_content
+  field_direccion_detallada:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: ds_content
+  field_facebook:
+    weight: 8
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: ds_content
+  field_fax:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: ds_content
+  field_fotos:
+    weight: 6
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: ds_content
+  field_google_:
+    weight: 10
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: ds_content
+  field_linkedin:
+    weight: 11
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: ds_content
+  field_location:
+    weight: 7
+    label: above
+    settings:
+      title: ''
+      set_marker: '1'
+      common_map: ''
+      info_text: ''
+      use_overridden_map_settings: 0
+      google_map_settings:
+        type: ROADMAP
+        zoom: '10'
+        minZoom: 0
+        maxZoom: 18
+        rotateControl: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        fullscreenControl: 0
+        scrollwheel: 1
+        disableDoubleClickZoom: 0
+        draggable: 1
+        height: 400px
+        width: 100%
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        style: ''
+        preferScrollingToZooming: 0
+        gestureHandling: auto
+    third_party_settings: {  }
+    type: geolocation_map
+    region: ds_content
+  field_provincia_canton_distrito:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_shs
+    region: ds_content
+  field_sitio_web:
+    weight: 11
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: ds_content
+  field_telefono_de_habitacion:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: ds_content
+  field_telefono_de_oficina:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: ds_content
+  field_telefono_movil:
+    weight: 10
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: ds_content
+  field_twitter:
+    weight: 9
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: ds_content
+  field_video:
+    weight: 7
+    label: above
+    settings:
+      image_style: ''
+      link_image_to: ''
+    third_party_settings: {  }
+    type: video_embed_field_thumbnail
+    region: ds_content
+hidden:
+  links: true

@@ -1,0 +1,270 @@
+uuid: 1706ca46-661e-4a04-878d-8672760acee7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.personas.body
+    - field.field.node.personas.field_apartado_postal
+    - field.field.node.personas.field_archivo_descargable
+    - field.field.node.personas.field_autoria
+    - field.field.node.personas.field_canal_vimeo
+    - field.field.node.personas.field_canal_youtube
+    - field.field.node.personas.field_categoria
+    - field.field.node.personas.field_correo_electronico
+    - field.field.node.personas.field_correo_electronico_alterna
+    - field.field.node.personas.field_direccion_detallada
+    - field.field.node.personas.field_facebook
+    - field.field.node.personas.field_fax
+    - field.field.node.personas.field_fotos
+    - field.field.node.personas.field_google_
+    - field.field.node.personas.field_linkedin
+    - field.field.node.personas.field_location
+    - field.field.node.personas.field_provincia_canton_distrito
+    - field.field.node.personas.field_sitio_web
+    - field.field.node.personas.field_telefono_de_habitacion
+    - field.field.node.personas.field_telefono_de_oficina
+    - field.field.node.personas.field_telefono_movil
+    - field.field.node.personas.field_twitter
+    - field.field.node.personas.field_video
+    - image.style.thumbnail
+    - node.type.personas
+  module:
+    - file
+    - geolocation
+    - image
+    - link
+    - path
+    - text
+    - video_embed_field
+id: node.personas.default
+targetEntityType: node
+bundle: personas
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_apartado_postal:
+    weight: 39
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_archivo_descargable:
+    weight: 31
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_autoria:
+    weight: 46
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_canal_vimeo:
+    weight: 45
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_canal_youtube:
+    weight: 44
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_categoria:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_correo_electronico:
+    weight: 37
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_correo_electronico_alterna:
+    weight: 38
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_direccion_detallada:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_facebook:
+    weight: 40
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_fax:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_fotos:
+    weight: 29
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_google_:
+    weight: 42
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_linkedin:
+    weight: 43
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_location:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_provincia_canton_distrito:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_sitio_web:
+    weight: 36
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_telefono_de_habitacion:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_telefono_de_oficina:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_telefono_movil:
+    weight: 35
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_twitter:
+    weight: 41
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_video:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: video_embed_field_textfield
+    region: content
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

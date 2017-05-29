@@ -1,0 +1,25 @@
+uuid: cb642ec2-65a2-46e2-8b32-6129771cf02b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - node.type.personas
+  module:
+    - video_embed_field
+id: node.personas.field_video
+field_name: field_video
+entity_type: node
+bundle: personas
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: vimeo
+    youtube_playlist: youtube_playlist
+    youtube: youtube
+field_type: video_embed_field

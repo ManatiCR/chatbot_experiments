@@ -1,0 +1,28 @@
+uuid: 5d4f6611-a125-4aa1-9606-aa2f93629143
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_provincia_canton_distrito
+    - node.type.personas
+    - taxonomy.vocabulary.division_geopolitica
+id: node.personas.field_provincia_canton_distrito
+field_name: field_provincia_canton_distrito
+entity_type: node
+bundle: personas
+label: Provincia-cantón-distrito
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_geopolitica: division_geopolitica
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
