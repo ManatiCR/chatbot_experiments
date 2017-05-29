@@ -1,34 +1,56 @@
 module:
+  better_exposed_filters: 0
   block: 0
   breakpoint: 0
+  chosen: 0
+  chosen_field: 0
+  chosen_lib: 0
   ckeditor: 0
   color: 0
+  conditional_fields: 0
   config: 0
   contextual: 0
+  ctools: 0
+  ctools_block: 0
+  ctools_views: 0
   datetime: 0
   dblog: 0
+  devel: 0
+  ds: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   field: 0
+  field_group: 0
+  field_permissions: 0
   field_ui: 0
   file: 0
   filter: 0
+  geolocation: 0
   help: 0
   image: 0
+  layout_discovery: 0
+  libraries: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
+  migrate: 0
+  migrate_drupal: 0
+  migrate_drupal_ui: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
   quickedit: 0
   search: 0
+  shs: 0
   system: 0
+  taxonomy: 0
   text: 0
   toolbar: 0
   update: 0
   user: 0
+  video_embed_field: 0
   views: 0
   views_ui: 0
   chatbot_experiments: 1000
