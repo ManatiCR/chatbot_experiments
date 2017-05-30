@@ -1,0 +1,19 @@
+uuid: bbf0b214-247d-4c67-bd68-a7d487c8499a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telefono_de_oficina
+    - node.type.personas
+id: node.personas.field_telefono_de_oficina
+field_name: field_telefono_de_oficina
+entity_type: node
+bundle: personas
+label: 'Telefono de oficina'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

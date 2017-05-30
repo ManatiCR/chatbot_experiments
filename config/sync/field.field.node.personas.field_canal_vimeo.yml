@@ -1,0 +1,23 @@
+uuid: 5802c986-eeaa-4a3f-8d47-bd0b644e8413
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_canal_vimeo
+    - node.type.personas
+  module:
+    - link
+id: node.personas.field_canal_vimeo
+field_name: field_canal_vimeo
+entity_type: node
+bundle: personas
+label: 'Canal Vimeo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

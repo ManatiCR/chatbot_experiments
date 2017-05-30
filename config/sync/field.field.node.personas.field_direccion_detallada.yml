@@ -1,0 +1,19 @@
+uuid: c7b3b35c-97a7-4817-bf77-046156a965e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_direccion_detallada
+    - node.type.personas
+id: node.personas.field_direccion_detallada
+field_name: field_direccion_detallada
+entity_type: node
+bundle: personas
+label: 'Dirección detallada'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

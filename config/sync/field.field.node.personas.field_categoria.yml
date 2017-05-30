@@ -1,0 +1,28 @@
+uuid: 8489cd03-10e0-490f-805b-c411f907edf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_categoria
+    - node.type.personas
+    - taxonomy.vocabulary.personas
+id: node.personas.field_categoria
+field_name: field_categoria
+entity_type: node
+bundle: personas
+label: Categoría
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      personas: personas
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

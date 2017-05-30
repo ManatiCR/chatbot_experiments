@@ -1,0 +1,22 @@
+uuid: cf84e8c9-e5fd-449a-819a-0d8364eb7223
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.personas
+  module:
+    - text
+id: node.personas.body
+field_name: body
+entity_type: node
+bundle: personas
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,5 +1,31 @@
 {
   "require": {
-    "drupal/core": "8.3.2"
+    "drupal/core": "8.3.2",
+    "drupal/admin_toolbar": "1.18",
+    "drupal/config_update": "1.2",
+    "drupal/ctools": "3.0-beta1",
+    "drupal/better_exposed_filters": "3.0-alpha2",
+    "drupal/devel": "1.0-rc1",
+    "drupal/field_permissions": "1.0-beta1",
+    "drupal/field_group": "1.0-rc6",
+    "drupal/libraries": "3.x-dev#73f8b99",
+    "drupal/page_manager": "1.0-alpha24",
+    "drupal/panelizer": "3.0-alpha3",
+    "drupal/panels": "3.0-beta6",
+    "drupal/pathauto": "1.0-rc1",
+    "drupal/search_api": "1.0-beta4",
+    "drupal/search_api_solr": "1.x-dev#3a2f6953",
+    "drupal/token": "1.0-rc1",
+    "drupal/conditional_fields": "1.x-dev#c901bbc",
+    "drupal/ds": "3.1",
+    "drupal/entity": "1.0-alpha4",
+    "drupal/shs": "1.0-alpha1",
+    "drupal/geolocation": "1.10",
+    "drupal/chosen": "2.3",
+    "drupal/admin_menu": "3.x-dev#61acfcb",
+    "drupal/migrate_upgrade": "3.0-rc1",
+    "drupal/migrate_plus": "4.0-beta1",
+    "drupal/migrate_tools": "4.0-beta1",
+    "drupal/video_embed_field": "1.5"
   }
 }

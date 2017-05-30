@@ -1,0 +1,9 @@
+uuid: 6732a600-aa1e-4776-9000-90103760414a
+langcode: en
+status: true
+dependencies: {  }
+name: Autoría
+vid: autoria
+description: ''
+hierarchy: 0
+weight: 0

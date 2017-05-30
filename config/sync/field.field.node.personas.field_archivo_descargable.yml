@@ -1,0 +1,27 @@
+uuid: 782de14b-69f7-4f5f-86f9-cf9a9aad32d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_archivo_descargable
+    - node.type.personas
+  module:
+    - file
+id: node.personas.field_archivo_descargable
+field_name: field_archivo_descargable
+entity_type: node
+bundle: personas
+label: 'Archivo descargable'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc docx zip rar'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

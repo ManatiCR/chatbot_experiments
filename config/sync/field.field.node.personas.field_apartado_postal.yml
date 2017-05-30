@@ -1,0 +1,19 @@
+uuid: 8e37dc5c-6fab-4e78-a7ac-6a278fa3b16d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_apartado_postal
+    - node.type.personas
+id: node.personas.field_apartado_postal
+field_name: field_apartado_postal
+entity_type: node
+bundle: personas
+label: 'Apartado postal'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

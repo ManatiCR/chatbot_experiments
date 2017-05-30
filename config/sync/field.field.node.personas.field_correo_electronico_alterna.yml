@@ -1,0 +1,19 @@
+uuid: 7a2f14e0-3e0c-46c5-a5cd-b6de54fbb32c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_correo_electronico_alterna
+    - node.type.personas
+id: node.personas.field_correo_electronico_alterna
+field_name: field_correo_electronico_alterna
+entity_type: node
+bundle: personas
+label: 'Correo electrónico alternativo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,23 @@
+uuid: 7db81708-e077-4221-a89e-cd508af447c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_canal_youtube
+    - node.type.personas
+  module:
+    - link
+id: node.personas.field_canal_youtube
+field_name: field_canal_youtube
+entity_type: node
+bundle: personas
+label: 'Canal YouTube'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

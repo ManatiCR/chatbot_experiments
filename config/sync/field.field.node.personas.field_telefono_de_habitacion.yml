@@ -1,0 +1,19 @@
+uuid: 16e5735a-0573-46a4-8482-5dbeb6a4ee25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telefono_de_habitacion
+    - node.type.personas
+id: node.personas.field_telefono_de_habitacion
+field_name: field_telefono_de_habitacion
+entity_type: node
+bundle: personas
+label: 'Telefono de habitación'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

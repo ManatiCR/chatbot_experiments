@@ -1,0 +1,28 @@
+uuid: 9be16c72-9746-416d-9aba-316c0b5db3d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.personas.body
+    - node.type.personas
+  module:
+    - text
+    - user
+id: node.personas.teaser
+targetEntityType: node
+bundle: personas
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
