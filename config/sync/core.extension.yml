@@ -1,7 +1,10 @@
 module:
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
   better_exposed_filters: 0
   block: 0
   breakpoint: 0
+  chatbot_migration: 0
   chosen: 0
   chosen_field: 0
   chosen_lib: 0
@@ -37,6 +40,9 @@ module:
   migrate: 0
   migrate_drupal: 0
   migrate_drupal_ui: 0
+  migrate_plus: 0
+  migrate_tools: 0
+  migrate_upgrade: 0
   node: 0
   options: 0
   page_cache: 0
