@@ -1,0 +1,7 @@
+id: chatbot_migration
+label: Chatbot Experiments Migration
+description: 'Migrate Personas.'
+source_type: 'Database.'
+shared_configuration:
+  source:
+    key: default

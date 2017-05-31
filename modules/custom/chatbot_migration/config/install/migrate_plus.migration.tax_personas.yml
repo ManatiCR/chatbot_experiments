@@ -1,0 +1,27 @@
+id: tax_personas
+migration_group: chatbot_migration
+label: Personas
+source:
+  plugin: tax_personas
+  target: sicultura_db
+process:
+  vid:
+    plugin: default_value
+    default_value: personas
+  name:
+    - plugin: get
+      source: name
+    - plugin: default_value
+      default_value: Placeholder Term
+  description:
+    - plugin: get
+      source: description
+    - plugin: default_value
+      default_value: Placeholder description
+  parent:
+    plugin: migration
+    migration: tax_personas
+    source: parent
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: null

@@ -1,0 +1,14 @@
+uuid: 2e2690f1-bd46-4a7c-828e-0752e8cb412f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EPb6HFFCxOUm2uOaMO1ZYkOCqMTUioEOGQnrMTX6Qts
+id: chatbot_migration
+label: 'Chatbot Experiments Migration'
+description: 'Migrate Personas.'
+source_type: Database.
+module: null
+shared_configuration:
+  source:
+    key: default

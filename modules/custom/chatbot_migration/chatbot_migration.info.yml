@@ -1,0 +1,10 @@
+name: Chatbot Experiments Migration
+description: Migrate utilities for Chatbot Experiments site.
+core: 8.x
+package: Custom
+type: module
+dependencies:
+  - drupal:node
+  - drupal:options
+  - drupal:taxonomy
+  - migrate_plus:migrate_plus
