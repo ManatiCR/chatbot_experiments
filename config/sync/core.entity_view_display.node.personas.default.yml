@@ -170,10 +170,9 @@ mode: default
 content:
   body:
     label: hidden
-    type: text_trimmed
+    type: text_default
     weight: 2
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
     region: ds_content
   field_apartado_postal:
@@ -398,10 +397,12 @@ content:
     weight: 7
     label: above
     settings:
-      image_style: ''
-      link_image_to: ''
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: true
     third_party_settings: {  }
-    type: video_embed_field_thumbnail
+    type: video_embed_field_video
     region: ds_content
 hidden:
   links: true
