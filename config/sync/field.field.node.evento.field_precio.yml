@@ -1,0 +1,19 @@
+uuid: e2ea1e5d-57c4-4615-93dd-ad0b3b0bcc58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_precio
+    - node.type.evento
+id: node.evento.field_precio
+field_name: field_precio
+entity_type: node
+bundle: evento
+label: Precio
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

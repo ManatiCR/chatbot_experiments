@@ -1,0 +1,23 @@
+uuid: 2a00eb25-41bc-410c-b376-1d3fa20f4f5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sitio_web
+    - node.type.evento
+  module:
+    - link
+id: node.evento.field_sitio_web
+field_name: field_sitio_web
+entity_type: node
+bundle: evento
+label: 'Sitio web'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

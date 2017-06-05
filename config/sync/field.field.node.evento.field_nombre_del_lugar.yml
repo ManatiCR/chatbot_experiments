@@ -1,0 +1,19 @@
+uuid: f897b96b-864c-4d18-b037-109ca10a4747
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nombre_del_lugar
+    - node.type.evento
+id: node.evento.field_nombre_del_lugar
+field_name: field_nombre_del_lugar
+entity_type: node
+bundle: evento
+label: 'Nombre del lugar'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

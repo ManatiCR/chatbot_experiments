@@ -1,0 +1,23 @@
+uuid: fe69c819-dfcf-4064-a260-c80e93c7af01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_es_destacado
+    - node.type.evento
+id: node.evento.field_es_destacado
+field_name: field_es_destacado
+entity_type: node
+bundle: evento
+label: 'Es destacado'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Sí
+  off_label: 'No'
+field_type: boolean

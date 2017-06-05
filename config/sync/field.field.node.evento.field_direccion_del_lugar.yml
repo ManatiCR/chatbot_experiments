@@ -1,0 +1,19 @@
+uuid: 1c669166-01c1-418c-b094-308d243dc00d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_direccion_del_lugar
+    - node.type.evento
+id: node.evento.field_direccion_del_lugar
+field_name: field_direccion_del_lugar
+entity_type: node
+bundle: evento
+label: 'Dirección del lugar'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
