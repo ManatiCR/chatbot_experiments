@@ -1,0 +1,39 @@
+uuid: 6efcfd46-ab8a-4471-93a2-c3697194fb97
+langcode: en
+status: true
+dependencies: {  }
+id: tax_categoria_evento
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: chatbot_migration
+label: 'Categoria Evento'
+source:
+  plugin: tax_categoria_evento
+  target: sicultura_db
+process:
+  vid:
+    plugin: default_value
+    default_value: categoria_evento
+  name:
+    -
+      plugin: get
+      source: name
+    -
+      plugin: default_value
+      default_value: 'Placeholder Term'
+  description:
+    -
+      plugin: get
+      source: description
+    -
+      plugin: default_value
+      default_value: 'Placeholder description'
+  parent:
+    plugin: migration
+    migration: tax_categoria_evento
+    source: parent
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: null
