@@ -11,7 +11,7 @@ entity_type: node
 bundle: evento
 label: 'Es destacado'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -
