@@ -1,0 +1,46 @@
+id: evento
+migration_group: chatbot_migration
+label: Evento
+source:
+  plugin: evento
+  target: sicultura_db
+process:
+  type:
+    plugin: default_value
+    default_value: evento
+  title: title
+  field_categoria_del_evento:
+    plugin: migration
+    migration: tax_categoria_evento
+    source: field_categoria_evento_tid
+  field_es_destacado: field_es_destacado_value
+  body/value: body_value
+  body/format:
+    plugin: default_value
+    default_value: full_html
+  field_precio: field_precio_value
+  field_nombre_del_lugar: field_nombre_del_lugar_value
+  field_direccion_del_lugar: field_direccion_del_lugar_value
+  field_sitio_web: field_sitio_web_url
+  field_telefono_de_contacto: field_telefono_de_contacto_value
+  field_email_de_contacto: field_email_de_contacto_email
+  field_fecha_y_hora/value: field_fecha_y_hora_value
+  field_fecha_y_hora/end_value: field_fecha_y_hora_value2
+  field_provincia_canton_distrito:
+    plugin: migration
+    migration: tax_division_geopolitica
+    source: field_division_politica
+  field_location/lng: longitude
+  field_location/lat: latitude
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - tax_division_geopolitica
+    - tax_categoria_evento
