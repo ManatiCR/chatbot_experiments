@@ -1,4 +1,4 @@
-uuid: 8395b493-7365-4717-90b3-4b061c36abf2
+uuid: 4274ba62-9e12-4482-9437-2fd02b90155d
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_fecha_y_hora
     - node.type.evento
   module:
-    - datetime
+    - datetime_range
 id: node.evento.field_fecha_y_hora
 field_name: field_fecha_y_hora
 entity_type: node
@@ -18,4 +18,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime
+field_type: daterange

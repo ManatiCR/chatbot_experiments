@@ -1,9 +1,9 @@
-uuid: cc71feba-909d-4a02-bc39-9df96481f8c8
+uuid: 86ab8888-56cf-438e-9425-5c4dc198aa53
 langcode: en
 status: true
 dependencies:
   module:
-    - datetime
+    - datetime_range
     - field_permissions
     - node
 third_party_settings:
@@ -12,10 +12,10 @@ third_party_settings:
 id: node.field_fecha_y_hora
 field_name: field_fecha_y_hora
 entity_type: node
-type: datetime
+type: daterange
 settings:
   datetime_type: datetime
-module: datetime
+module: datetime_range
 locked: false
 cardinality: 1
 translatable: true

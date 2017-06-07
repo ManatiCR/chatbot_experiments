@@ -20,7 +20,7 @@ dependencies:
     - field.field.node.evento.field_ubicacion
     - node.type.evento
   module:
-    - datetime
+    - datetime_range
     - ds
     - field_group
     - geolocation
@@ -63,8 +63,8 @@ third_party_settings:
         - field_sitio_web
         - field_telefono_de_contacto
         - field_provincia_canton_distrito
-        - field_location
         - field_email_de_contacto
+        - field_location
     fields:
       node_title:
         plugin_id: node_title
@@ -153,10 +153,11 @@ content:
     weight: 6
     label: above
     settings:
-      timezone_override: ''
+      timezone_override: America/Costa_Rica
       date_format: 'Y-m-d\TH:i:s'
+      separator: '-'
     third_party_settings: {  }
-    type: datetime_custom
+    type: daterange_custom
     region: ds_content
   field_imagen:
     weight: 1

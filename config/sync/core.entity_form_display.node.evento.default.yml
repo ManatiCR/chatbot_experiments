@@ -21,7 +21,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.evento
   module:
-    - datetime
+    - datetime_range
     - field_group
     - geolocation
     - image
@@ -38,7 +38,7 @@ third_party_settings:
         - field_provincia_canton_distrito
         - field_location
       parent_name: ''
-      weight: 9
+      weight: 8
       format_type: fieldset
       format_settings:
         id: ''
@@ -52,7 +52,7 @@ third_party_settings:
         - field_email_de_contacto
         - field_telefono_de_contacto
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: fieldset
       format_settings:
         id: ''
@@ -67,7 +67,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 4
     settings:
       rows: 9
       summary_rows: 3
@@ -76,7 +76,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 15
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -106,7 +106,7 @@ content:
     type: email_default
     region: content
   field_entidades_relacionadas:
-    weight: 8
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -122,10 +122,10 @@ content:
     type: boolean_checkbox
     region: content
   field_fecha_y_hora:
-    weight: 6
+    weight: 5
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
+    type: daterange_default
     region: content
   field_imagen:
     weight: 1
@@ -150,7 +150,7 @@ content:
     type: string_textfield
     region: content
   field_precio:
-    weight: 7
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -184,14 +184,14 @@ content:
     type: string_textfield
     region: content
   field_ubicacion:
-    weight: 4
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: geolocation_latlng
     region: content
   path:
     type: path
-    weight: 18
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -199,14 +199,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 17
+    weight: 14
     region: content
     third_party_settings: {  }
   title:
@@ -219,7 +219,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 14
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
