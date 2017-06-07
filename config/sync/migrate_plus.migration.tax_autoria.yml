@@ -1,4 +1,4 @@
-uuid: 13a372da-dd68-45ba-afc9-23b0842490ec
+uuid: 59b6b807-1639-4c46-a9fa-9db5e81d757e
 langcode: en
 status: true
 dependencies: {  }
@@ -20,6 +20,9 @@ process:
     default_value: autoria
   name: name
   description: description
+  uid:
+    plugin: default_value
+    default_value: 1
 destination:
   plugin: 'entity:taxonomy_term'
 migration_dependencies: null

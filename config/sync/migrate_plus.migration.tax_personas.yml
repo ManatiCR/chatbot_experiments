@@ -1,4 +1,4 @@
-uuid: be002d4d-e6dc-46f0-a5fc-0b0e30f08408
+uuid: 3da0fb26-419d-4627-be83-4878b1b059fc
 langcode: en
 status: true
 dependencies: {  }
@@ -36,6 +36,9 @@ process:
     plugin: migration
     migration: tax_personas
     source: parent
+  uid:
+    plugin: default_value
+    default_value: 1
 destination:
   plugin: 'entity:taxonomy_term'
 migration_dependencies: null

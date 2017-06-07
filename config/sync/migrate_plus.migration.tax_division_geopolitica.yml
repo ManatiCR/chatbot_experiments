@@ -1,4 +1,4 @@
-uuid: 3ceba16e-13dd-47f1-bc08-579b8adad798
+uuid: 68b6cc82-8171-4831-8c5a-286cbdd3fb35
 langcode: en
 status: true
 dependencies: {  }
@@ -36,6 +36,9 @@ process:
     plugin: migration
     migration: tax_division_geopolitica
     source: parent
+  uid:
+    plugin: default_value
+    default_value: 1
 destination:
   plugin: 'entity:taxonomy_term'
 migration_dependencies: null

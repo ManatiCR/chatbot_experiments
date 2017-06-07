@@ -34,6 +34,9 @@ process:
     plugin: migration
     migration: tax_categoria_evento
     source: parent
+  uid:
+    plugin: default_value
+    default_value: 1
 destination:
   plugin: 'entity:taxonomy_term'
 migration_dependencies: null
