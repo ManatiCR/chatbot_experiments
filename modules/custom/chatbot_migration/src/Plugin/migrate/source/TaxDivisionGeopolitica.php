@@ -18,6 +18,10 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  * )
  */
 class TaxDivisionGeopolitica extends SqlBase {
+
+  /**
+   * {@inheritdoc}
+   */
   public function query() {
     $query = $this->select('taxonomy_term_data', 't')
       ->fields('t', [
@@ -31,6 +35,9 @@ class TaxDivisionGeopolitica extends SqlBase {
     return $query;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function fields() {
     $fields = [
       'tid' => $this->t('Term ID'),
@@ -40,6 +47,9 @@ class TaxDivisionGeopolitica extends SqlBase {
     return $fields;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getIds() {
     return [
       'tid' => [

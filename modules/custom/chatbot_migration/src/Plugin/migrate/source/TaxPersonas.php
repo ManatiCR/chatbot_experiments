@@ -17,6 +17,10 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  * )
  */
 class TaxPersonas extends SqlBase {
+
+  /**
+   * {@inheritdoc}
+   */
   public function query() {
     $query = $this->select('taxonomy_term_data', 't')
       ->fields('t', [
@@ -30,6 +34,9 @@ class TaxPersonas extends SqlBase {
     return $query;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function fields() {
     $fields = [
       'tid' => $this->t('Term ID'),
@@ -39,6 +46,9 @@ class TaxPersonas extends SqlBase {
     return $fields;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getIds() {
     return [
       'tid' => [

@@ -19,6 +19,10 @@ use Drupal\migrate\Plugin\MigrationInterface;
  * )
  */
 class Evento extends SqlBase {
+
+  /**
+   * {@inheritdoc}
+   */
   public function query() {
     $query = $this->select('node', 'n')
       ->fields('n', [
@@ -70,6 +74,9 @@ class Evento extends SqlBase {
     return $query;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function fields() {
     $fields = [
       'nid' => $this->t('Node id.'),
@@ -93,6 +100,9 @@ class Evento extends SqlBase {
     return $fields;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getIds() {
     return [
       'nid' => [
@@ -102,6 +112,9 @@ class Evento extends SqlBase {
     ];
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function prepareRow(Row $row) {
     if (parent::prepareRow($row) === FALSE) {
       return FALSE;
