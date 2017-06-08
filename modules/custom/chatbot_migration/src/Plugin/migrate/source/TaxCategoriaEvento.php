@@ -19,11 +19,11 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
 class TaxCategoriaEvento extends SqlBase {
   public function query() {
     $query = $this->select('taxonomy_term_data', 't')
-      ->fields('t', array(
+      ->fields('t', [
         'tid',
         'name',
         'description',
-      ))
+      ])
       ->condition('vid', 12);
     $query->join('taxonomy_term_hierarchy', 'th', 't.tid = th.tid');
     $query->addField('th', 'parent');

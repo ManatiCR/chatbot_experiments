@@ -21,11 +21,11 @@ use Drupal\migrate\Plugin\MigrationInterface;
 class Evento extends SqlBase {
   public function query() {
     $query = $this->select('node', 'n')
-      ->fields('n', array(
+      ->fields('n', [
         'nid',
         'vid',
         'title'
-      ));
+      ]);
 
     /* Join tables for getting fields.*/
     // For text, link and email fields.
@@ -72,22 +72,22 @@ class Evento extends SqlBase {
 
   public function fields() {
     $fields = [
-      'nid' => t('Node id.'),
-      'title' => t('Node title.'),
-      'field_categoria_evento_tid' => t('Term ID for field_categoria_evento.'),
-      'field_es_destacado_value' => t('Es destacado.'),
-      'body_value' => t('Node body.'),
-      'field_precio_value' => t('Price.'),
-      'field_nombre_del_lugar_value' => t('Event place name.'),
-      'field_direccion_del_lugar_value' => t('Event place address.'),
-      'field_sitio_web_url' => t('Website'),
-      'field_telefono_de_contacto_value' => t('Contact phone.'),
-      'field_email_de_contacto_email' => t('Contact email.'),
-      'field_fecha_y_hora_value' => t('Date and time: from.'),
-      'field_fecha_y_hora_value2' => t('Date and time: to.'),
-      'field_division_politica' => t('Term ID for field_provincia_canton_distrito.'),
-      'latitude' => t('Field location latitude.'),
-      'longitude' => t('Field location longitude.'),
+      'nid' => $this->t('Node id.'),
+      'title' => $this->t('Node title.'),
+      'field_categoria_evento_tid' => $this->t('Term ID for field_categoria_evento.'),
+      'field_es_destacado_value' => $this->t('Es destacado.'),
+      'body_value' => $this->t('Node body.'),
+      'field_precio_value' => $this->t('Price.'),
+      'field_nombre_del_lugar_value' => $this->t('Event place name.'),
+      'field_direccion_del_lugar_value' => $this->t('Event place address.'),
+      'field_sitio_web_url' => $this->t('Website'),
+      'field_telefono_de_contacto_value' => $this->t('Contact phone.'),
+      'field_email_de_contacto_email' => $this->t('Contact email.'),
+      'field_fecha_y_hora_value' => $this->t('Date and time: from.'),
+      'field_fecha_y_hora_value2' => $this->t('Date and time: to.'),
+      'field_division_politica' => $this->t('Term ID for field_provincia_canton_distrito.'),
+      'latitude' => $this->t('Field location latitude.'),
+      'longitude' => $this->t('Field location longitude.'),
     ];
 
     return $fields;
@@ -115,14 +115,14 @@ class Evento extends SqlBase {
     if (!empty($nid) && !empty($vid)) {
       // Process field_data_field_provincia_canton_distrito.
       $division_politica = $this->select('field_data_field_provincia_canton_distrito', 'fdfpcd')
-        ->fields('fdfpcd', array('field_provincia_canton_distrito_tid'))
+        ->fields('fdfpcd', ['field_provincia_canton_distrito_tid'])
         ->condition('fdfpcd.entity_id', $nid)
         ->condition('fdfpcd.revision_id', $vid)
         ->execute()
         ->fetchCol();
       // Process field_locations.
       $location = $this->select('location', 'l')
-        ->fields('l', array('latitude', 'longitude'));
+        ->fields('l', ['latitude', 'longitude']);
       $location->leftJoin('field_data_field_location', 'fdfl', 'l.lid = fdfl.field_location_lid');
       $location = $location->condition('fdfl.entity_id', $nid)
         ->condition('fdfl.revision_id', $vid)

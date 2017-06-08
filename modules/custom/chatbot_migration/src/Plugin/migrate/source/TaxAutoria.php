@@ -19,11 +19,11 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
 class TaxAutoria extends SqlBase {
   public function query() {
     $query = $this->select('taxonomy_term_data', 't')
-      ->fields('t', array(
+      ->fields('t', [
         'tid',
         'name',
         'description',
-      ))
+      ])
       ->condition('vid', 10);
     return $query;
   }
