@@ -1,38 +1,38 @@
-uuid: 72474fe1-23c3-4241-ade8-907a75d4213a
+uuid: 7f699951-e006-4a30-8140-5a2631ce98b0
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_fotos
-    - node.type.personas
+    - field.storage.node.field_imagen
+    - node.type.evento
   module:
     - image
-id: node.personas.field_fotos
-field_name: field_fotos
+id: node.evento.field_imagen
+field_name: field_imagen
 entity_type: node
-bundle: personas
-label: Fotos
+bundle: evento
+label: Imagen
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: ''
-  max_resolution: ''
-  min_resolution: 250x142
   alt_field: true
   alt_field_required: true
   title_field: false
   title_field_required: false
+  max_resolution: ''
+  min_resolution: ''
   default_image:
-    uuid: 3f6372a1-9ed2-4227-a1dc-4483c11cf161
+    uuid: null
     alt: ''
     title: ''
-    width: 400
-    height: 400
+    width: null
+    height: null
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
   handler: 'default:file'
   handler_settings: {  }
 field_type: image

@@ -1,4 +1,7 @@
 {
   "patches": {
+    "drupal/migrate_tools": {
+      "https://www.drupal.org/node/2825846": "https://www.drupal.org/files/issues/migrate_tools_dashboard-2825846-4.patch"
+    }
   }
 }

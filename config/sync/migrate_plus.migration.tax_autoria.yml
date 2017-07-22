@@ -1,0 +1,28 @@
+uuid: 59b6b807-1639-4c46-a9fa-9db5e81d757e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: x-PHvdfHoDGCb-W5dV2xnoH3Qm9Md6ds7QR9nILAP0U
+id: tax_autoria
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: chatbot_migration
+label: Autoria
+source:
+  plugin: tax_autoria
+  target: sicultura_db
+process:
+  vid:
+    plugin: default_value
+    default_value: autoria
+  name: name
+  description: description
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: null

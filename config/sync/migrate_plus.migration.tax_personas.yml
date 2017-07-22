@@ -1,0 +1,44 @@
+uuid: 3da0fb26-419d-4627-be83-4878b1b059fc
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: QmgyWyxBC6n9cShISe5lrIGvZr8zJMjqg9Jfsz93_DQ
+id: tax_personas
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: chatbot_migration
+label: Personas
+source:
+  plugin: tax_personas
+  target: sicultura_db
+process:
+  vid:
+    plugin: default_value
+    default_value: personas
+  name:
+    -
+      plugin: get
+      source: name
+    -
+      plugin: default_value
+      default_value: 'Placeholder Term'
+  description:
+    -
+      plugin: get
+      source: description
+    -
+      plugin: default_value
+      default_value: 'Placeholder description'
+  parent:
+    plugin: migration
+    migration: tax_personas
+    source: parent
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: null

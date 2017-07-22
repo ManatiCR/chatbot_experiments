@@ -1,0 +1,28 @@
+uuid: 7ee3e634-84d0-4a1b-99c5-814e6f90adde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_provincia_canton_distrito
+    - node.type.evento
+    - taxonomy.vocabulary.division_geopolitica
+id: node.evento.field_provincia_canton_distrito
+field_name: field_provincia_canton_distrito
+entity_type: node
+bundle: evento
+label: Provincia-cantón-distrito
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      division_geopolitica: division_geopolitica
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

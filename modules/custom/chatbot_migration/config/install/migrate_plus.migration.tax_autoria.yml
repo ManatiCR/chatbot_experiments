@@ -1,0 +1,18 @@
+id: tax_autoria
+migration_group: chatbot_migration
+label: Autoria
+source:
+  plugin: tax_autoria
+  target: sicultura_db
+process:
+  vid:
+    plugin: default_value
+    default_value: autoria
+  name: name
+  description: description
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: null

@@ -25,4 +25,26 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_apartado_postal: true
+  field_archivo_descargable: true
+  field_autoria: true
+  field_canal_vimeo: true
+  field_canal_youtube: true
+  field_categoria: true
+  field_correo_electronico: true
+  field_correo_electronico_alterna: true
+  field_direccion_detallada: true
+  field_facebook: true
+  field_fax: true
+  field_fotos: true
+  field_google_: true
+  field_linkedin: true
+  field_location: true
+  field_provincia_canton_distrito: true
+  field_sitio_web: true
+  field_telefono_de_habitacion: true
+  field_telefono_de_oficina: true
+  field_telefono_movil: true
+  field_twitter: true
+  field_video: true

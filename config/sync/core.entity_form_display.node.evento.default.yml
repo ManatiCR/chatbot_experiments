@@ -1,0 +1,229 @@
+uuid: f61fd28c-6eda-45ed-97dc-7776095a982b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.evento.body
+    - field.field.node.evento.field_categoria_del_evento
+    - field.field.node.evento.field_direccion_del_lugar
+    - field.field.node.evento.field_email_de_contacto
+    - field.field.node.evento.field_entidades_relacionadas
+    - field.field.node.evento.field_es_destacado
+    - field.field.node.evento.field_fecha_y_hora
+    - field.field.node.evento.field_imagen
+    - field.field.node.evento.field_location
+    - field.field.node.evento.field_nombre_del_lugar
+    - field.field.node.evento.field_precio
+    - field.field.node.evento.field_provincia_canton_distrito
+    - field.field.node.evento.field_sitio_web
+    - field.field.node.evento.field_telefono_de_contacto
+    - field.field.node.evento.field_ubicacion
+    - image.style.thumbnail
+    - node.type.evento
+  module:
+    - datetime_range
+    - field_group
+    - geolocation
+    - image
+    - link
+    - path
+    - shs
+    - text
+third_party_settings:
+  field_group:
+    group_direccion_del_evento:
+      children:
+        - field_nombre_del_lugar
+        - field_direccion_del_lugar
+        - field_provincia_canton_distrito
+        - field_location
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Direccion del evento'
+    group_datos_de_contacto:
+      children:
+        - field_sitio_web
+        - field_email_de_contacto
+        - field_telefono_de_contacto
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Datos de contacto'
+id: node.evento.default
+targetEntityType: node
+bundle: evento
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_categoria_del_evento:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_direccion_del_lugar:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_email_de_contacto:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_entidades_relacionadas:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_es_destacado:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_fecha_y_hora:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_imagen:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_location:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_nombre_del_lugar:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_precio:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_provincia_canton_distrito:
+    weight: 12
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings: {  }
+    type: options_shs
+    region: content
+  field_sitio_web:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_telefono_de_contacto:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ubicacion:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  path:
+    type: path
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 12
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 14
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

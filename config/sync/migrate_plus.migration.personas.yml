@@ -1,0 +1,71 @@
+uuid: af0e5daf-90c0-4127-815e-cae383c7cb9e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bFqlPKYx1Cw-XVedQTVbvjTg7-Zh4Yuhm_L2xXCqyDQ
+id: personas
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: chatbot_migration
+label: Personas
+source:
+  plugin: personas
+  target: sicultura_db
+process:
+  type:
+    plugin: default_value
+    default_value: personas
+  title: title
+  body/value: body_value
+  body/format:
+    plugin: default_value
+    default_value: full_html
+  field_direccion_detallada/value: field_direccion_detallada_value
+  field_direccion_detallada/format:
+    plugin: default_value
+    default_value: plain_text
+  field_provincia_canton_distrito:
+    plugin: migration
+    migration: tax_division_geopolitica
+    source: field_division_politica
+  field_location/lng: longitude
+  field_location/lat: latitude
+  field_telefono_de_oficina: field_telefono_de_oficina_value
+  field_telefono_de_habitacion: field_telefono_habitacion_value
+  field_fax: field_fax_value
+  field_telefono_movil: field_telefono_movil_value
+  field_sitio_web: field_sitio_web_url
+  field_correo_electronico: field_correo_electronico_email
+  field_correo_electronico_alterna: field_correo_electronico_alt_email
+  field_apartado_postal: field_apartado_postal_value
+  field_facebook: field_facebook_url
+  field_twitter: field_twitter_url
+  field_google_: field_google__url
+  field_linkedin: field_linkedin_url
+  field_canal_youtube: field_canal_youtube_url
+  field_canal_vimeo: field_canal_vimeo_url
+  field_autoria:
+    plugin: migration
+    migration: tax_autoria
+    source: field_autoria_tid
+  field_categoria:
+    plugin: migration
+    migration: tax_personas
+    source: field_categoria
+  field_video: field_videos
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - tax_autoria
+    - tax_division_geopolitica
+    - tax_personas

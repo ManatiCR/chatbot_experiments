@@ -1,0 +1,44 @@
+uuid: 68b6cc82-8171-4831-8c5a-286cbdd3fb35
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: apyoZ1dW6uhWKR7VgTaq2M38vvPlwxlLV1P3oOBucw8
+id: tax_division_geopolitica
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: chatbot_migration
+label: 'Division Geopolitica'
+source:
+  plugin: tax_division_geopolitica
+  target: sicultura_db
+process:
+  vid:
+    plugin: default_value
+    default_value: division_geopolitica
+  name:
+    -
+      plugin: get
+      source: name
+    -
+      plugin: default_value
+      default_value: 'Placeholder Term'
+  description:
+    -
+      plugin: get
+      source: description
+    -
+      plugin: default_value
+      default_value: 'Placeholder description'
+  parent:
+    plugin: migration
+    migration: tax_division_geopolitica
+    source: parent
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: null

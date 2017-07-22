@@ -34,6 +34,7 @@ dependencies:
     - image
     - link
     - path
+    - shs
     - text
     - video_embed_field
 id: node.personas.default
@@ -99,11 +100,12 @@ content:
   field_categoria:
     weight: 1
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_shs
     region: content
   field_correo_electronico:
     weight: 37
@@ -178,11 +180,12 @@ content:
   field_provincia_canton_distrito:
     weight: 27
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_shs
     region: content
   field_sitio_web:
     weight: 36
