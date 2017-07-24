@@ -1,0 +1,118 @@
+uuid: 1757217f-666a-49f7-bb7e-2dc1c2a89ac6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_categoria_del_evento
+    - field.storage.node.field_direccion_del_lugar
+    - field.storage.node.field_fecha_y_hora
+    - field.storage.node.field_nombre_del_lugar
+    - field.storage.node.field_precio
+    - field.storage.node.field_provincia_canton_distrito
+    - search_api.server.chatbot
+  module:
+    - taxonomy
+    - search_api
+    - node
+id: chatbot_index
+name: 'chatbot index'
+description: ''
+read_only: false
+field_settings:
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  name:
+    label: 'Categoría del Evento » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_categoria_del_evento:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_categoria_del_evento
+      module:
+        - taxonomy
+  field_direccion_del_lugar:
+    label: 'Dirección del lugar'
+    datasource_id: 'entity:node'
+    property_path: field_direccion_del_lugar
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_direccion_del_lugar
+  field_fecha_y_hora:
+    label: 'Fecha y hora'
+    datasource_id: 'entity:node'
+    property_path: field_fecha_y_hora
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_fecha_y_hora
+  field_nombre_del_lugar:
+    label: 'Nombre del lugar'
+    datasource_id: 'entity:node'
+    property_path: field_nombre_del_lugar
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_nombre_del_lugar
+  field_precio:
+    label: Precio
+    datasource_id: 'entity:node'
+    property_path: field_precio
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_precio
+  name_2:
+    label: 'Provincia-cantón-distrito » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_provincia_canton_distrito:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_provincia_canton_distrito
+      module:
+        - taxonomy
+  field_provincia_canton_distrito:
+    label: Provincia-cantón-distrito
+    datasource_id: 'entity:node'
+    property_path: field_provincia_canton_distrito
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_provincia_canton_distrito
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  aggregated_field: {  }
+  rendered_item: {  }
+  add_url: {  }
+tracker_settings:
+  default: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: chatbot
