@@ -50,6 +50,8 @@ module:
   path: 0
   quickedit: 0
   search: 0
+  search_api: 0
+  search_api_solr: 0
   shs: 0
   system: 0
   taxonomy: 0
