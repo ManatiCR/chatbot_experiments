@@ -162,10 +162,14 @@ class Evento extends SqlBase {
       $row->setSourceProperty('longitude', $longitude);
     }
 
-    // Transform dates.
-    $from = $row->getSourceProperty('field_fecha_y_hora_value');
-    $row->setSourceProperty('field_fecha_y_hora_value', gmdate(DATETIME_DATETIME_STORAGE_FORMAT, strtotime($from)));
-    $to = $row->getSourceProperty('field_fecha_y_hora_value2');
-    $row->setSourceProperty('field_fecha_y_hora_value2', gmdate(DATETIME_DATETIME_STORAGE_FORMAT, strtotime($to)));
+    // Transform dates to be future dates.
+    // Calculate value for field_fecha_y_hora 'from' value.
+    $random = mt_rand(0,90);
+    $from = gmdate(DATETIME_DATETIME_STORAGE_FORMAT, strtotime('+' . $random . ' days'));
+    $row->setSourceProperty('field_fecha_y_hora_value', $from);
+
+    // Calculate value for field_fecha_y_hora 'to' value.
+    $to = gmdate(DATETIME_DATETIME_STORAGE_FORMAT, strtotime('+' . $random . ' days 2 hours'));
+    $row->setSourceProperty('field_fecha_y_hora_value2', $to);
   }
 }
