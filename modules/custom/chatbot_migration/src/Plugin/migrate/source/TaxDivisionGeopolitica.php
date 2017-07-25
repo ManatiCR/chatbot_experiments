@@ -2,8 +2,7 @@
 
 /**
  * @file
- * Contains
- * \Drupal\chatbot_migration\Plugin\migrate\source\TaxDivisionGeopolitica.
+ * Has \Drupal\chatbot_migration\Plugin\migrate\source\TaxDivisionGeopolitica.
  */
 
 namespace Drupal\chatbot_migration\Plugin\migrate\source;
@@ -58,4 +57,5 @@ class TaxDivisionGeopolitica extends SqlBase {
       ],
     ];
   }
+
 }

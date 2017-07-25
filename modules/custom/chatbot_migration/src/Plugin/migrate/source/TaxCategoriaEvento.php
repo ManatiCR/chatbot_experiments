@@ -57,4 +57,5 @@ class TaxCategoriaEvento extends SqlBase {
       ],
     ];
   }
+
 }
