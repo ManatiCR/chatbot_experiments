@@ -1,4 +1,4 @@
-box: kporras07/drupal-wercker
+box: kporras07/drupal-wercker:php5.6
 build:
     steps:
     - script:
@@ -93,7 +93,7 @@ deploy:
         name: Install ssh and other dependencies
         code: |
             apt-get update -y
-            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+            apt-get install -y build-essential curl wget git php5.6-curl unzip php5.6-mysql php5.6-gd ssh-client openssh-client keychain
     - add-ssh-key:
         keyname: DEPLOYMENT_KEY
     - script:
@@ -145,7 +145,7 @@ deploy-test:
         name: Install ssh and other dependencies
         code: |
             apt-get update -y
-            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+            apt-get install -y build-essential curl wget git php5.6-curl unzip php5.6-mysql php5.6-gd ssh-client openssh-client keychain
     - add-ssh-key:
         keyname: DEPLOYMENT_KEY
     - script:
@@ -181,7 +181,7 @@ deploy-live:
         name: Install ssh and other dependencies
         code: |
             apt-get update -y
-            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+            apt-get install -y build-essential curl wget git php5.6-curl unzip php5.6-mysql php5.6-gd ssh-client openssh-client keychain
     - add-ssh-key:
         keyname: DEPLOYMENT_KEY
     - script:
@@ -217,7 +217,7 @@ deploy-multidev:
         name: Install ssh and other dependencies
         code: |
             apt-get update -y
-            apt-get install -y build-essential curl wget git php5-curl unzip php5-mysql php5-gd ssh-client openssh-client keychain
+            apt-get install -y build-essential curl wget git php5.6-curl unzip php5.6-mysql php5.6-gd ssh-client openssh-client keychain
     - add-ssh-key:
         keyname: DEPLOYMENT_KEY
     - script:
