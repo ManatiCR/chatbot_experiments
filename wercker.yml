@@ -35,7 +35,7 @@ build:
             # Create Drupal DB
             mysql -u root -pAdmin2015 -e "create database drupal;"
             # Install Drupal and disable sendmail.
-            if [ -f /pipeline/source/config/sync/core.extension.yml ] ; then /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" && drush si chatbot_experiments -y ; drush config-set "system.site" uuid $SITE_UUID -y ; drush cim -y ; else /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" drush si chatbot_experiments -y ; fi
+            if [ -f /pipeline/source/config/sync/core.extension.yml ] ; then /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" drush si chatbot_experiments -y ; drush config-set "system.site" uuid $SITE_UUID -y ; drush cim -y ; else /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`" drush si chatbot_experiments -y ; fi
             # Post build configuration.
             drush cc drush
             drush cr
