@@ -208,8 +208,6 @@ deploy-multidev:
     - script:
         name: Deploy code to pantheon
         code: |
-            echo 'Load aquifer extensions...'
-            ./node_modules/.bin/aquifer extensions-load
             NEWBRANCH=$WERCKER_GIT_BRANCH
             LENGTH=${#NEWBRANCH}
             if [ LENGTH > 10 ] ; then NEWBRANCH=${NEWBRANCH:8:6} ; fi
