@@ -98,6 +98,12 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_provincia_canton_distrito
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 8
 datasource_settings:
   'entity:node':
     bundles:
@@ -107,8 +113,8 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  aggregated_field: {  }
   rendered_item: {  }
+  aggregated_field: {  }
   add_url: {  }
 tracker_settings:
   default: {  }
