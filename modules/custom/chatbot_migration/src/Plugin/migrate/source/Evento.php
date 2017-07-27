@@ -9,7 +9,6 @@ namespace Drupal\chatbot_migration\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
-use Drupal\migrate\Plugin\MigrationInterface;
 
 /**
  * D8 nodes from D7 database.
@@ -28,7 +27,7 @@ class Evento extends SqlBase {
       ->fields('n', [
         'nid',
         'vid',
-        'title'
+        'title',
       ]);
 
     /* Join tables for getting fields.*/
@@ -164,7 +163,7 @@ class Evento extends SqlBase {
 
     // Transform dates to be future dates.
     // Calculate value for field_fecha_y_hora 'from' value.
-    $random = mt_rand(0,90);
+    $random = mt_rand(0, 90);
     $from = gmdate(DATETIME_DATETIME_STORAGE_FORMAT, strtotime('+' . $random . ' days'));
     $row->setSourceProperty('field_fecha_y_hora_value', $from);
 
@@ -172,4 +171,5 @@ class Evento extends SqlBase {
     $to = gmdate(DATETIME_DATETIME_STORAGE_FORMAT, strtotime('+' . $random . ' days 2 hours'));
     $row->setSourceProperty('field_fecha_y_hora_value2', $to);
   }
+
 }

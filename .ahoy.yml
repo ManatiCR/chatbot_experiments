@@ -5,7 +5,7 @@ commands:
     cmd: |
       BRANCH=$1
       MESSAGE=$2
-      REPO=""
+      REPO="ssh://codeserver.dev.575b3305-8845-4d80-9516-a2aef1369c23@codeserver.dev.575b3305-8845-4d80-9516-a2aef1369c23.drush.in:2222/~/repository.git"
       BUILDFOLDER=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1`
       CLONEFOLDER=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1`
       mv web $BUILDFOLDER

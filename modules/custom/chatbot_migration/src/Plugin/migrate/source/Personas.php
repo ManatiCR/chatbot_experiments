@@ -9,7 +9,6 @@ namespace Drupal\chatbot_migration\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
-use Drupal\migrate\Plugin\MigrationInterface;
 
 /**
  * D8 nodes from D7 database.
@@ -28,7 +27,7 @@ class Personas extends SqlBase {
       ->fields('n', [
         'nid',
         'vid',
-        'title'
+        'title',
       ]);
 
     /* Join tables for getting fields.*/
@@ -201,4 +200,5 @@ class Personas extends SqlBase {
       $row->setSourceProperty('longitude', $longitude);
     }
   }
+
 }

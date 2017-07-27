@@ -54,4 +54,5 @@ class TaxAutoria extends SqlBase {
       ],
     ];
   }
+
 }
