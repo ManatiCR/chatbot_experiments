@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.body
     - search_api.index.chatbot_index
   module:
+    - chatbot_api
     - search_api
     - text
 id: chatbot
@@ -211,7 +212,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            personas: personas
+            evento: evento
           group: 1
           exposed: false
           expose:
@@ -258,7 +259,7 @@ display:
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
-            identifier: persona
+            identifier: search_api_fulltext
             required: false
             remember: false
             multiple: false
@@ -281,6 +282,46 @@ display:
           min_length: null
           fields: {  }
           plugin_id: search_api_fulltext
+        field_fecha_y_hora:
+          id: field_fecha_y_hora
+          table: search_api_index_chatbot_index
+          field: field_fecha_y_hora
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: now
+            type: offset
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_date
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -300,6 +341,22 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:field.storage.node.body'
+  chatbot_intent_1:
+    display_plugin: chatbot_intent
+    id: chatbot_intent_1
+    display_title: 'Chatbot Intent'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      intent_name: evento_cual
     cache_metadata:
       max-age: -1
       contexts:

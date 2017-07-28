@@ -10,6 +10,7 @@ dependencies:
     - field.storage.node.field_nombre_del_lugar
     - field.storage.node.field_precio
     - field.storage.node.field_provincia_canton_distrito
+    - field.storage.node.field_es_destacado
     - search_api.server.chatbot
   module:
     - taxonomy
@@ -42,7 +43,7 @@ field_settings:
     label: 'Categoría del Evento » Taxonomy term » Name'
     datasource_id: 'entity:node'
     property_path: 'field_categoria_del_evento:entity:name'
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_categoria_del_evento
@@ -76,15 +77,15 @@ field_settings:
     label: Precio
     datasource_id: 'entity:node'
     property_path: field_precio
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_precio
-  name_2:
+  distrito:
     label: 'Provincia-cantón-distrito » Taxonomy term » Name'
     datasource_id: 'entity:node'
     property_path: 'field_provincia_canton_distrito:entity:name'
-    type: string
+    type: text
     dependencies:
       config:
         - field.storage.node.field_provincia_canton_distrito
@@ -104,6 +105,37 @@ field_settings:
     property_path: title
     type: text
     boost: !!float 8
+  canton:
+    label: 'Provincia-cantón-distrito » Taxonomy term » Term Parents » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_provincia_canton_distrito:entity:parent:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_provincia_canton_distrito
+      module:
+        - taxonomy
+        - taxonomy
+  provincia:
+    label: 'Provincia-cantón-distrito » Taxonomy term » Term Parents » Taxonomy term » Term Parents » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_provincia_canton_distrito:entity:parent:entity:parent:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_provincia_canton_distrito
+      module:
+        - taxonomy
+        - taxonomy
+        - taxonomy
+  field_es_destacado:
+    label: 'Es destacado'
+    datasource_id: 'entity:node'
+    property_path: field_es_destacado
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_es_destacado
 datasource_settings:
   'entity:node':
     bundles:
