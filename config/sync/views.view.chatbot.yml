@@ -260,7 +260,7 @@ display:
             use_operator: false
             operator: search_api_fulltext_op
             identifier: search_api_fulltext
-            required: false
+            required: true
             remember: false
             multiple: false
             remember_roles:
