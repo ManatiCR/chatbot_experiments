@@ -900,7 +900,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.0-alpha2",
-                    "datestamp": "1484626084"
+                    "datestamp": "1501274342"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1156,6 +1156,142 @@
                 "source": "http://cgit.drupalcode.org/conditional_fields"
             },
             "time": "2017-05-05 16:05:38"
+        },
+        {
+            "name": "drupal/config_filter",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/config_filter",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_filter-8.x-1.0-rc1.zip",
+                "reference": null,
+                "shasum": "1a0033022f15cf956dddaebf12e70ebbb3639b50"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/coder": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1494172685"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "scripts": {
+                "post-install-cmd": [
+                    "./vendor/bin/phpcs --config-set installed_paths ../../drupal/coder/coder_sniffer",
+                    "./vendor/bin/phpcs --config-set show_progress 1",
+                    "cp ./tests/scripts/pre-push.sh .git/hooks/pre-push && chmod +x .git/hooks/pre-push"
+                ],
+                "post-update-cmd": [
+                    "./vendor/bin/phpcs --config-set installed_paths ../../drupal/coder/coder_sniffer",
+                    "./vendor/bin/phpcs --config-set show_progress 1",
+                    "cp ./tests/scripts/pre-push.sh .git/hooks/pre-push && chmod +x .git/hooks/pre-push"
+                ],
+                "phpcs": [
+                    "./vendor/bin/phpcs --standard=Drupal,DrupalPractice . --ignore=./vendor,./tests"
+                ],
+                "phpcs-n": [
+                    "./vendor/bin/phpcs --standard=Drupal,DrupalPractice . --ignore=./vendor,./tests -n"
+                ],
+                "phpcbf": [
+                    "./vendor/bin/phpcbf --standard=Drupal,DrupalPractice . --ignore=./vendor,./tests"
+                ]
+            },
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Nuvole Web",
+                    "homepage": "https://www.drupal.org/user/186696",
+                    "email": "info@nuvole.org"
+                },
+                {
+                    "name": "bircher",
+                    "homepage": "https://www.drupal.org/user/1344166"
+                },
+                {
+                    "name": "pescetti",
+                    "homepage": "https://www.drupal.org/user/436244"
+                }
+            ],
+            "description": "Config Filter.",
+            "homepage": "https://www.drupal.org/project/config_filter",
+            "keywords": [
+                "configuration",
+                "drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_filter"
+            }
+        },
+        {
+            "name": "drupal/config_split",
+            "version": "1.0.0-beta6",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/config_split",
+                "reference": "8.x-1.0-beta6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_split-8.x-1.0-beta6.zip",
+                "reference": null,
+                "shasum": "c816e0e24375b697daeacd36d2112b48ed857ae2"
+            },
+            "require": {
+                "drupal/config_filter": "*",
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta6",
+                    "datestamp": "1496912342"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "ademarco",
+                    "homepage": "https://www.drupal.org/user/186696"
+                },
+                {
+                    "name": "bircher",
+                    "homepage": "https://www.drupal.org/user/1344166"
+                },
+                {
+                    "name": "pescetti",
+                    "homepage": "https://www.drupal.org/user/436244"
+                }
+            ],
+            "description": "Configuration filter for importing and exporting extra config",
+            "homepage": "https://www.drupal.org/project/config_split",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_split",
+                "issues": "https://www.drupal.org/project/issues/config_split"
+            }
         },
         {
             "name": "drupal/config_update",
@@ -2578,6 +2714,56 @@
                 "source": "http://git.drupal.org/project/search_api.git",
                 "issues": "https://www.drupal.org/project/issues/search_api",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/search_api_pantheon",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/search_api_pantheon",
+                "reference": "8.x-1.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/search_api_pantheon-8.x-1.0-alpha3.zip",
+                "reference": null,
+                "shasum": "bf70208743803b3b69de271402d471efb07e1cc5"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/search_api_solr": "~1.0-beta1"
+            },
+            "require-dev": {
+                "drupal/coder": "2.0-beta1",
+                "drupal/drupal-extension": "dev-master",
+                "drush-ops/behat-drush-endpoint": "*",
+                "squizlabs/php_codesniffer": "2.0.*@dev"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1489627684"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "stevector",
+                    "homepage": "https://www.drupal.org/user/179805"
+                }
+            ],
+            "description": "Search API + Solr + Pantheon integration",
+            "homepage": "https://www.drupal.org/project/search_api_pantheon",
+            "support": {
+                "source": "http://cgit.drupalcode.org/search_api_pantheon"
             }
         },
         {
@@ -5689,16 +5875,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "2.4.10",
+            "version": "2.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "27daf5bd0f8cfb69130b55b80f3ac374fb19ab08"
+                "reference": "7fbf68dc6abf2f1f0746ceab0701dee1ee97516e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/27daf5bd0f8cfb69130b55b80f3ac374fb19ab08",
-                "reference": "27daf5bd0f8cfb69130b55b80f3ac374fb19ab08",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/7fbf68dc6abf2f1f0746ceab0701dee1ee97516e",
+                "reference": "7fbf68dc6abf2f1f0746ceab0701dee1ee97516e",
                 "shasum": ""
             },
             "require": {
@@ -5737,7 +5923,7 @@
                 }
             ],
             "description": "Initialize Symfony Console commands from annotated command class methods.",
-            "time": "2017-07-21 19:24:23"
+            "time": "2017-07-27 20:29:17"
         },
         {
             "name": "consolidation/output-formatters",
@@ -6693,16 +6879,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.0.6",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1"
+                "reference": "4d4896e553f2094e657fe493506dc37c509d4e2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0808939f81c1347a3c8a82a5925385a08074b0f1",
-                "reference": "0808939f81c1347a3c8a82a5925385a08074b0f1",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4d4896e553f2094e657fe493506dc37c509d4e2b",
+                "reference": "4d4896e553f2094e657fe493506dc37c509d4e2b",
                 "shasum": ""
             },
             "require": {
@@ -6740,7 +6926,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-06-28 20:53:48"
+            "time": "2017-07-28 14:45:09"
         },
         {
             "name": "pear/console_table",
@@ -7588,16 +7774,16 @@
         },
         {
             "name": "webflo/drupal-finder",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webflo/drupal-finder.git",
-                "reference": "99271d40466612306413c407f07f328916815b37"
+                "reference": "ec2a9ac737b28d5bf3f894aa59f3af4b929aab22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webflo/drupal-finder/zipball/99271d40466612306413c407f07f328916815b37",
-                "reference": "99271d40466612306413c407f07f328916815b37",
+                "url": "https://api.github.com/repos/webflo/drupal-finder/zipball/ec2a9ac737b28d5bf3f894aa59f3af4b929aab22",
+                "reference": "ec2a9ac737b28d5bf3f894aa59f3af4b929aab22",
                 "shasum": ""
             },
             "require-dev": {
@@ -7621,7 +7807,7 @@
                 }
             ],
             "description": "Helper class to locate a Drupal installation from a given path.",
-            "time": "2017-07-25 15:06:10"
+            "time": "2017-07-27 17:23:02"
         },
         {
             "name": "webmozart/assert",
@@ -7726,11 +7912,11 @@
         "wikimedia/composer-merge-plugin": 20,
         "kporras07/composer-symlinks": 20,
         "testdrupal/behatextension": 20,
+        "drupal/admin_menu": 20,
         "drupal/api_ai_webhook": 20,
         "drupal/chatbot_api": 20,
-        "drupal/libraries": 20,
         "drupal/conditional_fields": 20,
-        "drupal/admin_menu": 20
+        "drupal/libraries": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -9,6 +9,8 @@
     "drupal/chatbot_api": "1.x-dev#5cd8c13",
     "drupal/config_update": "1.2",
     "drupal/conditional_fields": "1.x-dev#c901bbc",
+    "drupal/config_filter": "1.0-rc1",
+    "drupal/config_split": "1.0-beta6",
     "drupal/ctools": "3.0-beta1",
     "drupal/ds": "3.1",
     "drupal/devel": "1.0-rc1",
