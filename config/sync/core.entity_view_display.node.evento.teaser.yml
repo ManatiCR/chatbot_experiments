@@ -25,4 +25,18 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_categoria_del_evento: true
+  field_direccion_del_lugar: true
+  field_email_de_contacto: true
+  field_entidades_relacionadas: true
+  field_es_destacado: true
+  field_fecha_y_hora: true
+  field_imagen: true
+  field_location: true
+  field_nombre_del_lugar: true
+  field_precio: true
+  field_provincia_canton_distrito: true
+  field_sitio_web: true
+  field_telefono_de_contacto: true
+  field_ubicacion: true

@@ -3,21 +3,30 @@ langcode: en
 status: true
 dependencies:
   module:
-    - search_api_pantheon
     - search_api_solr
 id: chatbot
 name: chatbot
 description: ''
 backend: search_api_solr
 backend_config:
-  connector: pantheon
+  connector: standard
   connector_config:
-    schema: modules/contrib/search_api_solr/solr-conf/4.x/schema.xml
+    scheme: http
+    host: localhost
+    port: '8983'
+    path: /solr
+    core: collection1
+    timeout: 5
+    index_timeout: 5
+    optimize_timeout: 10
+    commit_within: 1000
+    solr_version: ''
+    http_method: AUTO
   retrieve_data: false
   highlight_data: false
   excerpt: false
   skip_schema_check: false
-  site_hash: true
+  site_hash: false
   suggest_suffix: true
   suggest_corrections: true
   suggest_words: false
