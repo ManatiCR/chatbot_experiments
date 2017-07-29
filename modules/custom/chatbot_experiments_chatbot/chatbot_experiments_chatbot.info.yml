@@ -1,0 +1,8 @@
+name: Chatbot Experiments Customizations
+description: Utilities for Chatbot Experiments site.
+core: 8.x
+package: Custom
+type: module
+dependencies:
+  - chatbot_api:chatbot_api
+  - chatbot_api:chatbot_api_apiai

@@ -7,6 +7,7 @@ module:
   breakpoint: 0
   chatbot_api: 0
   chatbot_api_apiai: 0
+  chatbot_experiments_chatbot: 0
   chatbot_migration: 0
   chosen: 0
   chosen_field: 0
