@@ -1,15 +1,20 @@
 <?php
 
+/**
+ * @file
+ * Contains ChatbotExperimentsViewsIntent class.
+ */
+
 namespace Drupal\chatbot_experiments_chatbot\Plugin\Chatbot\Intent;
 
 use Drupal\chatbot_api\Plugin\Intent\ViewsIntent;
 use Drupal\Component\Render\HtmlEscapedText;
-use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
-use Drupal\views\ViewExecutableFactory;
 
+/**
+ * ChatbotExperimentsViewsIntent.
+ */
 class ChatbotExperimentsViewsIntent extends ViewsIntent implements ContainerFactoryPluginInterface {
 
   /**
@@ -31,7 +36,7 @@ class ChatbotExperimentsViewsIntent extends ViewsIntent implements ContainerFact
       $title = new HtmlEscapedText($node->title->value);
       /** @var \Drupal\Core\Render\Renderer $renderer */
       $this->response->setIntentResponse($title);
-      $this->response->setData($this->buildFBGenericTemplate($node));
+      $this->response->setData($this->buildFbGenericTemplate($node));
     }
     $this->incrementIterationProgress();
   }
@@ -46,7 +51,7 @@ class ChatbotExperimentsViewsIntent extends ViewsIntent implements ContainerFact
    *   Generic template data as shown at
    *   https://discuss.api.ai/t/card-json-response-webhook/2258/2
    */
-  protected function buildFBGenericTemplate(Node $node) {
+  protected function buildFbGenericTemplate(Node $node) {
     $url = Url::fromRoute('entity.node.canonical', ['node' => $node->nid->value]);
     $image_url = NULL;
     if (!empty($node->field_imagen->entity->fid->value)) {
@@ -85,4 +90,5 @@ class ChatbotExperimentsViewsIntent extends ViewsIntent implements ContainerFact
 
     return $data;
   }
+
 }

@@ -1,9 +1,12 @@
 <?php
 
+/**
+ * @file
+ * Contains ChatbotExperimentsChatbotIntentResponseApiAiProxy class.
+ */
+
 namespace Drupal\chatbot_experiments_chatbot;
 
-use ApiAi\Model\Context;
-use Drupal\api_ai_webhook\ApiAi\Model\Webhook\Response;
 use Drupal\chatbot_api\IntentResponseApiAiProxy;
 
 /**

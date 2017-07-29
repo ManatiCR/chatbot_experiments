@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains RequestSubscriber class.
+ */
+
 namespace Drupal\chatbot_experiments_chatbot\EventSubscriber;
 
 use Drupal\api_ai_webhook\ApiAiEvent;

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains ChatbotExperimentsChatbotServiceProvider class.
+ */
+
 namespace Drupal\chatbot_experiments_chatbot;
 
 
@@ -19,4 +24,5 @@ class ChatbotExperimentsChatbotServiceProvider extends ServiceProviderBase {
     $definition = $container->getDefinition('chatbot_api_apiai.request_subscriber');
     $definition->setClass('Drupal\chatbot_experiments_chatbot\EventSubscriber\RequestSubscriber');
   }
+
 }
