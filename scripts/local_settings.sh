@@ -9,7 +9,7 @@ then
 
   if [ ! -f ./settings/settings.local.php ]; then
     echo "Creating ./settings/settings.local.php"
-    printf "<?php\n/**\n * @file\n * Local development settings.\n */\n\n\$config['system.performance']['css']['preprocess'] = FALSE;\n\$config['system.performance']['js']['preprocess'] = FALSE;\n" > settings/settings.local.php
+    printf "<?php\n/**\n * @file\n * Local development settings.\n */\n\n\$config['system.performance']['css']['preprocess'] = FALSE;\n\$config['system.performance']['js']['preprocess'] = FALSE;\n\$config['config_split.config_split.dev']['status'] = TRUE;" > settings/settings.local.php
   fi
 
   if [ ! -f ./settings/settings.secret.php ]; then
