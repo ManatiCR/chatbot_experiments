@@ -7,7 +7,7 @@
 
 namespace Drupal\chatbot_experiments_chatbot;
 
-use Drupal\chatbot_api\IntentResponseApiAiProxy;
+use Drupal\chatbot_api_apiai\IntentResponseApiAiProxy;
 
 /**
  * Proxy wrapping Api.ai Response in a ChatbotRequestInterface.
@@ -16,7 +16,7 @@ use Drupal\chatbot_api\IntentResponseApiAiProxy;
  */
 class ChatbotExperimentsChatbotIntentResponseApiAiProxy extends IntentResponseApiAiProxy {
 
-  use ApiAiContextTrait;
+  use \Drupal\chatbot_api_apiai\ApiAiContextTrait;
 
   /**
    * {@inheritdoc}

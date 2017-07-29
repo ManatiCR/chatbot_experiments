@@ -7,7 +7,7 @@
 
 namespace Drupal\chatbot_experiments_chatbot\Plugin\Chatbot\Intent;
 
-use Drupal\chatbot_api\Plugin\Intent\ViewsIntent;
+use Drupal\chatbot_api\Plugin\Chatbot\Intent\ViewsIntent;
 use Drupal\Component\Render\HtmlEscapedText;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
