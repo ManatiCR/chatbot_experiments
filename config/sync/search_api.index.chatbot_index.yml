@@ -136,6 +136,11 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_es_destacado
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
 datasource_settings:
   'entity:node':
     bundles:
