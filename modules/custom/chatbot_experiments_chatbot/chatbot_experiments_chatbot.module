@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Module file for chatbot_experiments_chatbot.
+ */
+
+/**
+ * Implements hook_TYPE_alter().
+ */
+function chatbot_experiments_chatbot_chatbot_intent_info_alter(&$definitions) {
+  foreach ($definitions as &$definition) {
+    if ($definition['id'] === 'views_intent') {
+      $definition['class'] = 'Drupal\chatbot_experiments_chatbot\Plugin\Chatbot\Intent\ChatbotExperimentsViewsIntent';
+    }
+  }
+}
