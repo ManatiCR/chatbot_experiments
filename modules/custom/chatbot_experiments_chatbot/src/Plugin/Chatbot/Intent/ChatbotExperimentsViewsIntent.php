@@ -55,8 +55,7 @@ class ChatbotExperimentsViewsIntent extends ViewsIntent {
    *   https://discuss.api.ai/t/card-json-response-webhook/2258/2
    */
   protected function buildFbGenericTemplate(Node $node) {
-    // @TODO: Url.
-    $url = Url::fromRoute('entity.node.canonical', ['node' => $node->nid->value]);
+    $url = Url::fromRoute('entity.node.canonical', ['node' => $node->nid->value], ['absolute' => TRUE])->toString();
     $image_url = NULL;
     if (!empty($node->field_imagen->entity->fid->value)) {
       $uri = $node->field_imagen->entity->uri->value;
@@ -71,22 +70,16 @@ class ChatbotExperimentsViewsIntent extends ViewsIntent {
           'payload' => [
             'template_type' => 'generic',
             'elements' => [
-              'title' => new HtmlEscapedText($node->title->value),
-              'subtitle' => substr(strip_tags($node->body->value), 0, 80),
-              'image_url' => $image_url,
-              'default_action' => [
-                'type' => 'web_url',
-                'url' => $url,
-              ],
-              'buttons' => [
-                [
+              [
+                'title' => new HtmlEscapedText($node->title->value),
+                'subtitle' => substr(strip_tags($node->body->value), 0, 80),
+                'image_url' => $image_url,
+                'default_action' => [
                   'type' => 'web_url',
                   'url' => $url,
-                  'title' => $this->t('View'),
                 ],
               ],
             ],
-            'sharable' => TRUE,
           ],
         ],
       ],
